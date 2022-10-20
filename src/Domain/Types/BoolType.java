@@ -1,15 +1,10 @@
 package Domain.Types;
 
+import Domain.Values.BoolValue;
+import Domain.Values.IntValue;
+import Domain.Values.Value;
+
 public class BoolType implements Type {
-    boolean value;
-
-    public BoolType(){
-        this.value = false;
-    }
-
-    public BoolType(boolean v){
-        this.value = v;
-    }
 
     @Override
     public boolean equals(Object o){
@@ -17,7 +12,12 @@ public class BoolType implements Type {
     }
 
     @Override
+    public Value defaultValue() {
+        return new BoolValue(false);
+    }
+
+    @Override
     public String toString(){
-        return "string";
+        return "boolean";
     }
 }

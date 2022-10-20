@@ -10,6 +10,9 @@ public class IntValue implements Value{
          this.value = 0;
      }
 
+     public IntValue(int val) {
+         this.value = val;
+     }
      @Override
     public Type getType(){
          return new IntType();
