@@ -10,4 +10,6 @@ public interface MyIList<T> {
     void removeFromPosition(int index);
 
     int size();
+
+
 }
