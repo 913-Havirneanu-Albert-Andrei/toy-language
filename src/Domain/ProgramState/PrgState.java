@@ -2,14 +2,15 @@ package Domain.ProgramState;
 import ADT.*;
 import Domain.Statement.IStmt;
 import Domain.Values.Value;
+import Exception.MyException;
 
 public class PrgState {
     private MyIStack<IStmt> executionStack;
     private MyIDictionary<String , Value> symbolTable;
-    private MyIList<String> output;
+    private MyIList<Value> output;
     private IStmt originalProgram;
 
-    public PrgState(MyIStack<IStmt> exeStack , MyIDictionary<String , Value> symTable , MyIList<String> out , IStmt original){
+    public PrgState(MyIStack<IStmt> exeStack , MyIDictionary<String , Value> symTable , MyIList<Value> out , IStmt original){
         this.executionStack = exeStack;
         this.symbolTable = symTable;
         this.output = out;
@@ -24,7 +25,7 @@ public class PrgState {
         return this.symbolTable;
     }
 
-    public MyIList<String> getOutput(){
+    public MyIList<Value> getOutput(){
         return this.output;
     }
 
@@ -35,7 +36,5 @@ public class PrgState {
     public boolean programFinished(){
         return this.executionStack.isEmpty();
     }
-
-
 
 }
