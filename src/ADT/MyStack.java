@@ -1,9 +1,16 @@
 package ADT;
 
+import Domain.Statement.IStmt;
+
 import java.util.Stack;
 
 public class MyStack < T > implements MyIStack < T > {
     Stack < T > myStack;
+
+    public MyStack( T e ) {
+        this.myStack = new Stack<> ();
+        this.myStack.push ( e );
+    }
 
     public MyStack ( ) {
         this.myStack = new Stack < T > ( );

@@ -2,6 +2,7 @@ package ADT;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class MyDictionary < K, V > implements MyIDictionary < K, V > {
     private HashMap < K, V > myDictionary;
@@ -50,5 +51,19 @@ public class MyDictionary < K, V > implements MyIDictionary < K, V > {
         return this.myDictionary.size ( );
     }
 
+    @Override
+    public String toString()
+    {
+        String result = "";
+
+        Iterator <K> it = (Iterator<K>) this.myDictionary.keySet().iterator();
+
+        while(it.hasNext()) {
+            K key = it.next();
+            V value = this.myDictionary.get(key);
+            result += key.toString() + " = " + value.toString() + "\n";
+        }
+        return result;
+    }
 
 }

@@ -18,7 +18,7 @@ public class Controller {
     }
 
     public PrgState executeOneStep(PrgState program) throws MyException {
-        MyIStack<IStmt> exeStack = program.getExecutionStack ();
+        MyIStack<IStmt> exeStack = this.repo.getCrtPrg ().getExecutionStack ();
         if (exeStack.isEmpty ()){
             throw new MyException ("Stack empty!");
         }
@@ -33,4 +33,5 @@ public class Controller {
             program =  executeOneStep (program);
         }
     }
+
 }

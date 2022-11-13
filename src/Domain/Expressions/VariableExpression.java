@@ -13,8 +13,8 @@ public class VariableExpression implements Expression{
 
     @Override
     public Value eval(MyIDictionary<String, Value> symTable) throws MyException{
-       if(!symTable.checkIfKeyExists(this.id))
-           throw new MyException("Variable " + this.id + "is not declared!");
+        if( ! symTable.checkIfKeyExists ( this.id ) )
+           throw new MyException("Variable " + this.id + " is not declared!");
        return symTable.getValue(this.id);
     }
 }

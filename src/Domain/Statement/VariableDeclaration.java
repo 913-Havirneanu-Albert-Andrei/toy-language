@@ -1,5 +1,6 @@
 package Domain.Statement;
 
+import Domain.Expressions.ArithmeticExpression;
 import Exception.MyException;
 import ADT.MyIDictionary;
 import Domain.ProgramState.PrgState;
@@ -14,6 +15,7 @@ public class VariableDeclaration implements IStmt{
         this.name = n;
         this.type = t;
     }
+
 
     public String getId() {
         return this.name;

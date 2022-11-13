@@ -1,5 +1,6 @@
 package ADT;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class MyList < T > implements MyIList < T > {
@@ -33,5 +34,16 @@ public class MyList < T > implements MyIList < T > {
     @Override
     public int size ( ) {
         return this.myList.size ( );
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+
+        Iterator<T> it = (Iterator<T>) this.myList.iterator ();
+        while (it.hasNext ()){
+            result += it.next ().toString () + " ";
+        }
+        return result;
     }
 }

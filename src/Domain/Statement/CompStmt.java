@@ -19,8 +19,8 @@ public class CompStmt implements IStmt{
     @Override
     public PrgState execute(PrgState state) throws MyException {
         MyIStack<IStmt> exeStack = state.getExecutionStack();
-        exeStack.push(first);
         exeStack.push(second);
+        exeStack.push(first);
         return state;
     }
 }

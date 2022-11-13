@@ -22,18 +22,16 @@ public class VariableAssignment implements IStmt{
     }
 
     @Override
-    public PrgState execute ( PrgState state ) throws MyException {
-        MyIDictionary<String , Value > table = state.getSymbolTable ();
-        Value updatedValue = this.expression.eval (table);
-        Value oldValue = table.getValue (this.name);
-        if (!(table.checkIfKeyExists (this.name))){
-            throw new MyException ("Assignment error: Variable used but not defined");
-        }
-        if (!(oldValue.getType ().equals (updatedValue.getType ()))){
-            throw new MyException ("Assignment error: Tried to assign "
-                    + updatedValue.getType () + " to " + oldValue.getType ());
-        }
-        table.add (this.name , updatedValue );
-        return state;
+    public PrgState execute(PrgState state) throws MyException {
+        MyIDictionary<String, Value> symbolTable = state.getSymbolTable();
+        Value newValue = this.expression.eval(symbolTable);
+        if(symbolTable.checkIfKeyExists (this.name)){
+            Value oldValue = symbolTable.getValue (this.name);
+            if( newValue.getType().toString().equals(oldValue.getType().toString())){
+                symbolTable.add(this.name, newValue);
+            } else throw new MyException("AssignStmt exception: Variable " +  this.name.toString() + " is assigned wrong value type: " + newValue.getType().toString() + "!");
+        } else throw new MyException("AssignStmt exception: Variable " + this.name.toString() + " used but not defined!");
+
+        return null;
     }
 }

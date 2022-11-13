@@ -11,6 +11,11 @@ public class ArithmeticExpression implements Expression {
     private Expression fistExpression, secondExpression;
     private char operand;
 
+    public ArithmeticExpression(char op  , Expression e1 , Expression e2) {
+        this.operand = op;
+        this.fistExpression = e1;
+        this.secondExpression = e2;
+    }
     public ArithmeticExpression ( Expression e1, Expression e2, char op ) {
         this.fistExpression = e1;
         this.secondExpression = e2;
@@ -28,7 +33,7 @@ public class ArithmeticExpression implements Expression {
             throw new MyException ( "Arithmetic exception: Operand " + this.fistExpression + " is not an integer" );
         if ( ! ( v2.getType ( ).equals ( new IntType ( ) ) ) )
             throw new MyException ( "Arithmetic exception: Operand " + this.secondExpression + " is not an integer" );
-
+        // TODO kill my self tf im doing here
         // casting so that i can call the method get value
         IntValue intValue1 = (IntValue) v1;
         IntValue intValue2 = (IntValue) v2;
