@@ -61,7 +61,7 @@ public class MyDictionary < K, V > implements MyIDictionary < K, V > {
         while(it.hasNext()) {
             K key = it.next();
             V value = this.myDictionary.get(key);
-            result += key.toString() + " = " + value.toString() + "\n";
+            result += key.toString() + " = " + value.toString() + " ; ";
         }
         return result;
     }

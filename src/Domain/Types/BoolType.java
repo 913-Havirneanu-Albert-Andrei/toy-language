@@ -1,7 +1,6 @@
 package Domain.Types;
 
 import Domain.Values.BoolValue;
-import Domain.Values.IntValue;
 import Domain.Values.Value;
 
 public class BoolType implements Type {

@@ -23,7 +23,7 @@ public class VariableDeclaration implements IStmt{
 
     @Override
     public PrgState execute ( PrgState state ) throws MyException {
-        MyIDictionary<String , Value > table = state.getSymbolTable ();
+        MyIDictionary<String , Value > table = state.getSymTable ();
         if  (table.checkIfKeyExists (this.name)){
             throw new MyException ("Variable is already declared!");
         }
@@ -33,6 +33,8 @@ public class VariableDeclaration implements IStmt{
 
     @Override
     public String toString() {
-        return this.name + " " + this.type;
+        return this.type + " " + this.name;
+
     }
+
 }

@@ -3,7 +3,4 @@ import Domain.Types.Type;
 public interface Value {
    Type getType();
 
-   boolean equals(Object o);
-
-   String toString();
 }

@@ -30,4 +30,14 @@ public class MyStack < T > implements MyIStack < T > {
     public boolean isEmpty ( ) {
         return this.myStack.isEmpty ( );
     }
+
+    @Override
+    public String toString() {
+        String str = "";
+        for (T element : this.myStack) {
+            str += element;
+        }
+        return str.toString ();
+    }
+
 }

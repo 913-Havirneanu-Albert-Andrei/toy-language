@@ -21,8 +21,8 @@ public class PrintStatement implements IStmt{
 
     @Override
     public PrgState execute ( PrgState state ) throws MyException {
-        MyIDictionary<String , Value > table = state.getSymbolTable ();
-        MyIList<Value> output = state.getOutput ();
+        MyIDictionary<String , Value > table = state.getSymTable ();
+        MyIList<Value> output = state.getOutConsole ();
         output.addFinal (this.expression.eval (table));
         return state;
     }

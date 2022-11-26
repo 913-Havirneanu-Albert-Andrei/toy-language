@@ -22,15 +22,15 @@ public class IfStatement implements IStmt{
 
     @Override
     public String toString() {
-        return "if (" + this.expression + " ) " +  "{ " + "\n" +
-                  this.ifStatement + "\n" + " } " + "else" + "{" + "\n" +
-                this.elseStatement + "\n" + "}";
+        return "if (" + this.expression + " ) " +  "{ " +
+                  this.ifStatement  + " } " + "else" + "{" +
+                this.elseStatement  + "}";
     }
 
     @Override
     public PrgState execute ( PrgState state ) throws MyException {
-        MyIDictionary<String , Value > table = state.getSymbolTable ();
-        MyIStack<IStmt> exeStack = state.getExecutionStack ();
+        MyIDictionary<String , Value > table = state.getSymTable ();
+        MyIStack<IStmt> exeStack = state.getStack ();
         BoolValue expressionResult = (BoolValue) this.expression.eval (table);
         if (expressionResult.getValue ()) {
             exeStack.push (this.ifStatement);

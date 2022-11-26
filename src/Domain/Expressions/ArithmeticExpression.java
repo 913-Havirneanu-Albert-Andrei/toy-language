@@ -63,4 +63,26 @@ public class ArithmeticExpression implements Expression {
         }
         return new IntValue ( result );
     }
+
+    @Override
+    public String toString() {
+        switch(this.operand) {
+            case '+' -> {
+                return this.fistExpression + "+" +  this.secondExpression;
+            }
+
+            case '-' -> {
+                return this.fistExpression + "-" + this.secondExpression;
+            }
+            case '*' -> {
+                return this.fistExpression + "*" + this.secondExpression;
+            }
+            case '/' -> {
+                return this.fistExpression + "/" + this.secondExpression;
+            }
+            default -> {
+                return "";
+            }
+        }
+    }
 }

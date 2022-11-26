@@ -17,4 +17,9 @@ public class VariableExpression implements Expression{
            throw new MyException("Variable " + this.id + " is not declared!");
        return symTable.getValue(this.id);
     }
+
+    @Override
+    public String toString() {
+        return this.id;
+    }
 }

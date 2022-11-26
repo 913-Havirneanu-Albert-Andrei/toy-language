@@ -23,7 +23,7 @@ public class VariableAssignment implements IStmt{
 
     @Override
     public PrgState execute(PrgState state) throws MyException {
-        MyIDictionary<String, Value> symbolTable = state.getSymbolTable();
+        MyIDictionary<String, Value> symbolTable = state.getSymTable();
         Value newValue = this.expression.eval(symbolTable);
         if(symbolTable.checkIfKeyExists (this.name)){
             Value oldValue = symbolTable.getValue (this.name);
